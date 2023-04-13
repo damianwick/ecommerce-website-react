@@ -1,22 +1,39 @@
 import ProductCard from "./ProductCard"
-import Context from "../context/Context"
 import { ShopState } from "../context/Context"
-import { useContext, useEffect, useReducer } from "react"
-import { productReducer } from "../context/Reducers"
+
 const Products = () => {
     const { 
-        stock: { products }, 
-        shopStateDispatch
+        stock: { products },
+        productFilter: { category } 
     } = ShopState()
     
+
+    const filterProducts = () => {
+        let filteredProducts = products
+        if(category === "women's clothing") {
+            filteredProducts = filteredProducts.filter(p => p.category === category)
+        }
+        if(category === "men's clothing") {
+            filteredProducts = filteredProducts.filter(p => p.category === category)
+        }   
+        if(category === "jewelery") {
+            filteredProducts = filteredProducts.filter(p => p.category === category)
+        }   
+        if(category === "electronics") {
+            filteredProducts = filteredProducts.filter(p => p.category === category)
+        }   
+        return filteredProducts
+    }
+
+    console.log(category)
+    console.log(typeof filterProducts())
+
     return (
         <>
             <div className="d-flex flex-wrap justify-content-around">
                 {
-                    products.map((p) => (
-                        <ProductCard
-                            prod={p}
-                        />
+                    filterProducts().map((p) => (
+                        <ProductCard prod={p}/>
                     )) 
                 }
             </div>  

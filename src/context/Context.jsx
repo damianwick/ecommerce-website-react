@@ -1,5 +1,5 @@
-import { useState, useEffect, createContext, useContext, useReducer } from "react"
-import { productReducer } from "./Reducers";
+import { useEffect, createContext, useContext, useReducer } from "react"
+import { filterReducer, productReducer } from "./Reducers";
 // import { fakeStore } from "./fakeStore";
 
 const Shop = createContext([]);
@@ -19,9 +19,16 @@ const Context = ({ children }) => {
             })
             .catch(err => console.log('we\'re in a pickle: ' + err.message))
     }, [])
-   
+    
+    const [productFilter, productFilterDispatch] = useReducer(filterReducer, {
+        category: 'all'
+    })
+
+
     return (
-        <Shop.Provider value={{ stock, shopStateDispatch }}>{children}</Shop.Provider>
+        <Shop.Provider value={{ stock, shopStateDispatch, productFilter, productFilterDispatch }}>
+            {children}
+        </Shop.Provider>
     )
 }
 

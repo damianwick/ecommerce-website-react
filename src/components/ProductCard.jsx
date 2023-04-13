@@ -7,9 +7,8 @@ const ProductCard = ({ prod }) => {
         stock: {cart}, 
         shopStateDispatch 
     } = ShopState()
-    console.log(cart);
     return (
-        <Card className='w-50 mb-2' style={{maxWidth: '48%'}}>
+        <Card className='w-50 mb-2' style={{maxWidth: '48%'}} key={prod.id}>
             <Card.Img variant="top" src={prod.image} />
             <Card.Body>
                 <Card.Title>{prod.title}</Card.Title>
@@ -19,7 +18,8 @@ const ProductCard = ({ prod }) => {
                 </Card.Text>
                 {
                     cart.some(p => p.id === prod.id) ? (
-                        <Button 
+                        <Button
+                        key={prod.id} 
                         variant='outline-secondary' 
                         className='rounded-pill'
                         active
@@ -30,7 +30,8 @@ const ProductCard = ({ prod }) => {
                         Remove from Cart
                     </Button>    
                     ) : (
-                        <Button 
+                        <Button
+                        key={prod.id} 
                         variant='outline-secondary' 
                         className='rounded-pill'
                         onClick={() => (

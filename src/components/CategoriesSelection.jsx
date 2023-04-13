@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { Button, Container } from "react-bootstrap"
+import { ShopState } from "../context/Context"
 const CategoriesSelection = () => {
     const [categories, setCategories] = useState([
         {
             name: "All", 
             active: false,
-            category: null
+            category: 'all'
         }, 
         {
             name: "Men", 
@@ -28,24 +29,43 @@ const CategoriesSelection = () => {
             category: "electronics"
         }
     ])
-
+    const { 
+        productFilterDispatch
+     } = ShopState()
+  
     
+    
+     const handleClick = (props) => {
+        productFilterDispatch({type: 'CHANGE_PRODUCT_CATEGORY', payload: props.category})
+     }
     return (
         <>
             <Container className="d-flex justify-content-start mt-3 overflow-scroll">   
                 {
                 categories.map((c) => (
                     c.active ? (
-                        <Button key={c.name} variant="outline-secondary" className="rounded-pill" active>{c.name}</Button>
+                        <Button 
+                            key={c.name} 
+                            variant="outline-secondary" 
+                            className="rounded-pill" 
+                            active
+                        >
+                                {c.name}
+                        </Button>
                      ) : (
-                        <Button key={c.name} variant="outline-secondary" className="rounded-pill mx-1">{c.name}</Button> 
+                        <Button 
+                            key={c.name} 
+                            variant="outline-secondary" 
+                            className="rounded-pill mx-1"
+                            onClick={() => handleClick(c)}
+                        >
+                            {c.name}
+                        </Button> 
                      )
         
                 ))
             }
             </Container>
-            <hr className="home-divider"/>
-            
         </>
         
     )
