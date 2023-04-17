@@ -8,7 +8,8 @@ const Context = ({ children }) => {
     // fetching data as soon as the aplication loads
     const [stock, shopStateDispatch] = useReducer(productReducer, {
         products: [],
-        cart: []
+        cart: [],
+        saved: []
     })
 
     useEffect(() => {
@@ -21,9 +22,10 @@ const Context = ({ children }) => {
     }, [])
     
     const [productFilter, productFilterDispatch] = useReducer(filterReducer, {
-        category: 'all'
+        category: '',
+        price: '',
+        rating: 0
     })
-
 
     return (
         <Shop.Provider value={{ stock, shopStateDispatch, productFilter, productFilterDispatch }}>

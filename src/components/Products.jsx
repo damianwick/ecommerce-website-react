@@ -4,33 +4,28 @@ import { ShopState } from "../context/Context"
 const Products = () => {
     const { 
         stock: { products },
-        productFilter: { category } 
+        productFilter: { category, price, rating } 
     } = ShopState()
     
-
     const filterProducts = () => {
         let filteredProducts = products
-        if(category === "women's clothing") {
+        if(category) {
             filteredProducts = filteredProducts.filter(p => p.category === category)
         }
-        if(category === "men's clothing") {
-            filteredProducts = filteredProducts.filter(p => p.category === category)
-        }   
-        if(category === "jewelery") {
-            filteredProducts = filteredProducts.filter(p => p.category === category)
-        }   
-        if(category === "electronics") {
-            filteredProducts = filteredProducts.filter(p => p.category === category)
-        }   
+        if(price) {
+            filteredProducts = filteredProducts.sort((a, b) => (
+                price === 'low-to-high' ? a.price - b.price : b.price - a.price
+            ))
+        }
+        if(rating) {
+            filteredProducts = filteredProducts.filter((p) => Math.round(p.rating.rate) >= rating)
+        }
         return filteredProducts
     }
 
-    console.log(category)
-    console.log(typeof filterProducts())
-
     return (
         <>
-            <div className="d-flex flex-wrap justify-content-around">
+            <div className="d-flex flex-wrap justify-content-around mt-2">
                 {
                     filterProducts().map((p) => (
                         <ProductCard prod={p}/>

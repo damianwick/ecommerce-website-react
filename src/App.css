@@ -13,3 +13,14 @@
     -ms-overfloow-style: none;
     scrollbar-width: none;
 }
+.removeIcon:hover{
+    color: #dc3545;
+}
+.product-card-img{
+    height: 150px;
+    object-fit: contain;
+}
+
+.rating-count{
+    font-size: 0.8em;
+}

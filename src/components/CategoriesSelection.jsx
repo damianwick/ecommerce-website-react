@@ -6,7 +6,7 @@ const CategoriesSelection = () => {
         {
             name: "All", 
             active: false,
-            category: 'all'
+            category: ''
         }, 
         {
             name: "Men", 
@@ -33,11 +33,10 @@ const CategoriesSelection = () => {
         productFilterDispatch
      } = ShopState()
   
-    
-    
      const handleClick = (props) => {
         productFilterDispatch({type: 'CHANGE_PRODUCT_CATEGORY', payload: props.category})
      }
+
     return (
         <>
             <Container className="d-flex justify-content-start mt-3 overflow-scroll">   
