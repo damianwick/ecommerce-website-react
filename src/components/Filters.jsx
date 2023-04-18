@@ -5,7 +5,7 @@ import { ShopState } from '../context/Context'
 
 const Filters = () => {
     const [stars, setStars] = useState([4, 3, 2, 1])
-    const { productFilterDispatch, productFilter } = ShopState();    
+    const { productFilterDispatch, productFilter } = ShopState()
     return (
         <Container className='d-flex align-items-center'>
             <Dropdown className='me-2'>
@@ -39,7 +39,11 @@ const Filters = () => {
                         )}
                 </Dropdown.Menu>
             </Dropdown>
-            <Button className='rounded-pill' variant='outline-secondary'>Saved <AiFillHeart className='fs-4' /></Button>
+            <Button 
+                className='rounded-pill' 
+                variant='outline-secondary'
+                onClick={() => productFilterDispatch({type: 'DISPLAY_SAVED'})}
+            >Saved <AiFillHeart className='fs-4' /></Button>
             <CloseButton className="ms-1" onClick={() => {
                 productFilterDispatch({type: "CLEAR_FILTERS"})
                 }}/>

@@ -32,7 +32,7 @@ const CartButton = () => {
         </Button>
         <Offcanvas show={showCart} onHide={handleShowCart} placement="end">
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Shopping Cart</Offcanvas.Title>
+                <Offcanvas.Title>Basket</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
                 {cart.length ? (
@@ -64,7 +64,7 @@ const CartButton = () => {
                     </Row>
                     </Container>
                 ) : (
-                    <span>Cart is Empty</span>
+                    <span>Basket is Empty</span>
                 )}
 
             </Offcanvas.Body>

@@ -1,10 +1,13 @@
 import ProductCard from "./ProductCard"
+
 import { ShopState } from "../context/Context"
+import CategoriesSelection from "./CategoriesSelection"
+import Filters from "./Filters"
 
 const Products = () => {
     const { 
-        stock: { products },
-        productFilter: { category, price, rating } 
+        stock: { products, saved },
+        productFilter: { category, price, rating, isSaved } 
     } = ShopState()
     
     const filterProducts = () => {
@@ -20,11 +23,17 @@ const Products = () => {
         if(rating) {
             filteredProducts = filteredProducts.filter((p) => Math.round(p.rating.rate) >= rating)
         }
+        if(isSaved) {
+            filteredProducts = saved
+        }
         return filteredProducts
     }
 
     return (
-        <>
+        <>  
+            <CategoriesSelection />
+            <hr className="home-divider"/>
+            <Filters />
             <div className="d-flex flex-wrap justify-content-around mt-2">
                 {
                     filterProducts().map((p) => (
