@@ -1,7 +1,7 @@
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { ShopState } from "../context/Context"
 
-const HeartBtn = ({prod}) => {
+const HeartBtn = ({prod, style}) => {
     const {
         stock: {saved},
         shopStateDispatch
@@ -11,8 +11,8 @@ const HeartBtn = ({prod}) => {
             {saved.some(p => p.id === prod.id) ? (
                 <span   
                 className='
-                    position-absolute
                     btn 
+                    shadow-sm
                     rounded-pill 
                     btn-light 
                     d-flex 
@@ -20,7 +20,7 @@ const HeartBtn = ({prod}) => {
                     align-items-center
                     fs-4' 
                 style={
-                    {top: "10px", right: "10px", height: 40, width: 40}
+                    {height: 40, width: 40, ...style}
                 }
                 onClick={() => {
                     shopStateDispatch({type: 'REMOVE_FROM_SAVED', payload: prod.id})
@@ -35,8 +35,8 @@ const HeartBtn = ({prod}) => {
             ) : (
                 <span   
                 className='
-                    position-absolute
                     btn 
+                    shadow-sm
                     rounded-pill 
                     btn-light 
                     d-flex 
@@ -44,7 +44,7 @@ const HeartBtn = ({prod}) => {
                     align-items-center
                     fs-4' 
                 style={
-                    {height: 40, width: 40}
+                    {height: 40, width: 40, ...style}
                 }
                 onClick={() => {
                     shopStateDispatch({type: 'ADD_TO_SAVED', payload: prod})

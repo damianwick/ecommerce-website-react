@@ -5,63 +5,62 @@ const CategoriesSelection = () => {
     const [categories, setCategories] = useState([
         {
             name: "All", 
-            active: false,
-            category: ''
+            btnCategory: ''
         }, 
         {
-            name: "Men", 
-            active: false, 
-            category: "men's clothing"
+            name: "Men",  
+            btnCategory: "men's clothing"
         }, 
         {
-            name: "Women", 
-            active: false, 
-            category: "women's clothing"
+            name: "Women",  
+            btnCategory: "women's clothing"
         }, 
         {
-            name: "Jewelery",
-            active: false, 
-            category: "jewelery"
+            name: "Jewelery", 
+            btnCategory: "jewelery"
         }, 
         {
-            name: "Electronics", 
-            active: false, 
-            category: "electronics"
+            name: "Electronics",  
+            btnCategory: "electronics"
         }
     ])
+
     const { 
-        productFilterDispatch
+        productFilterDispatch,
+        productFilter: {category}
      } = ShopState()
   
      const handleClick = (props) => {
-        productFilterDispatch({type: 'CHANGE_PRODUCT_CATEGORY', payload: props.category})
+        productFilterDispatch({type: 'CHANGE_PRODUCT_CATEGORY', payload: props.btnCategory})
      }
 
     return (
         <>
-            <Container className="d-flex justify-content-start mt-3 overflow-scroll">   
+            <Container className="d-flex justify-content-center mt-2 overflow-scroll categories-container">   
                 {
                 categories.map((c) => (
-                    c.active ? (
-                        <Button 
-                            key={c.name} 
-                            variant="outline-secondary" 
-                            className="rounded-pill" 
-                            active
-                        >
-                                {c.name}
-                        </Button>
-                     ) : (
-                        <Button 
-                            key={c.name} 
-                            variant="outline-secondary" 
-                            className="rounded-pill mx-1"
+                    <span>
+                    {c.btnCategory === category ? (
+                            <Button 
+                            key={c.name}
+                            active 
+                            variant="light" 
+                            className="rounded-pill mx-1 p-2"
                             onClick={() => handleClick(c)}
                         >
                             {c.name}
                         </Button> 
-                     )
-        
+                    ) : (
+                        <Button 
+                        key={c.name} 
+                        variant="light" 
+                        className="rounded-pill mx-1 p-2"
+                        onClick={() => handleClick(c)}
+                    >
+                        {c.name}
+                    </Button> 
+                    )}
+                    </span>       
                 ))
             }
             </Container>

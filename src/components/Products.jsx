@@ -1,13 +1,14 @@
 import ProductCard from "./ProductCard"
-
 import { ShopState } from "../context/Context"
 import CategoriesSelection from "./CategoriesSelection"
 import Filters from "./Filters"
+import { Col, Container, Image, Row } from "react-bootstrap"
+import personShopping from '../assets/lady_shopping.jpg'
 
 const Products = () => {
     const { 
         stock: { products, saved },
-        productFilter: { category, price, rating, isSaved } 
+        productFilter: { category, price, rating, isSaved, search } 
     } = ShopState()
     
     const filterProducts = () => {
@@ -21,25 +22,38 @@ const Products = () => {
             ))
         }
         if(rating) {
-            filteredProducts = filteredProducts.filter((p) => Math.round(p.rating.rate) >= rating)
+            filteredProducts = filteredProducts.filter(p => Math.round(p.rating.rate) >= rating)
         }
         if(isSaved) {
             filteredProducts = saved
+        }
+        if(search) {
+            filteredProducts = filteredProducts.filter(p => 
+                p.title.toLowerCase().includes(search.toLowerCase())
+            )
         }
         return filteredProducts
     }
 
     return (
         <>  
-            <CategoriesSelection />
-            <hr className="home-divider"/>
+            {/* <CategoriesSelection /> */}
+            <Container>
+                <Row>
+                    <Col>
+                        <Image src={personShopping} fluid alt="person-shopping"/>
+                    </Col>
+                </Row>
+            </Container>
+
             <Filters />
-            <div className="d-flex flex-wrap justify-content-around mt-2">
-                {
+            <div className="d-flex flex-wrap justify-content-center mt-2 mx-auto">
+               {
                     filterProducts().map((p) => (
                         <ProductCard prod={p}/>
                     )) 
                 }
+                
             </div>  
         </>   
     )   

@@ -3,9 +3,9 @@ import { BsCart } from "react-icons/bs"
 import { useEffect, useState } from "react"
 import { ShopState } from "../context/Context"
 import { ImBin } from "react-icons/im"
-const CartButton = () => {
+const BasketButton = () => {
     const { 
-        stock: { cart },
+        stock: { basket },
         shopStateDispatch 
     } = ShopState()
 
@@ -15,7 +15,7 @@ const CartButton = () => {
     const [cartTotal, setCartTotal] = useState(0)
 
     useEffect(() => {
-        setCartTotal(cart.reduce((acc, val) => {
+        setCartTotal(basket.reduce((acc, val) => {
             acc = acc + val.price
             return Math.round(acc * 100) /100
         }, 0))
@@ -28,16 +28,17 @@ const CartButton = () => {
     return (
         <>
         <Button className='ms-2 btn btn-light fs-4' onClick={handleShowCart}>
-            <BsCart />
+            <BsCart /> 
+            <span className="fs-6 ms-1">{basket.length}</span>
         </Button>
         <Offcanvas show={showCart} onHide={handleShowCart} placement="end">
             <Offcanvas.Header closeButton>
                 <Offcanvas.Title>Basket</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                {cart.length ? (
+                {basket.length ? (
                     <Container className="">                    
-                    {cart.map(p => (
+                    {basket.map(p => (
                         <div className="d-flex justify-content-between align-items-center mb-1 p-1" style={{backgroundColor: "#f2f2f2"}}>
                             <img src={p.image} style={{width: "50px", height: "50px", objectFit: "contain"}}/>
                             <div className="mx-2 my-1 w-75" style={{ }}>
@@ -74,4 +75,4 @@ const CartButton = () => {
     )
 }
 
-export default CartButton
+export default BasketButton

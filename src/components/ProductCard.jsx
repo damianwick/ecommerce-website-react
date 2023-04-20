@@ -8,24 +8,26 @@ import HeartBtn from './HeartBtn'
 
 const ProductCard = ({ prod }) => {
     const {
-        singleProductDispatch,
-        singleProductState 
+        singleProductDispatch 
     } = ShopState()
 
     return (
-        <Card className='w-50 mb-2 d-flex flex-column' style={{maxWidth: '48%'}} key={prod.id}>
-            <HeartBtn prod={prod}/>
+        <Card className='w-50 m-2 d-flex flex-column product-card' key={prod.id}>
+            <HeartBtn prod={prod} style={{position: "absolute", top: "10px", right: "10px"}}/>
             <Card.Img variant="top" src={prod.image} className='product-card-img mt-2'/>
-            <Card.Body>
-            <Link to="/product" onClick={() => {
-                singleProductDispatch({type: "SET_SINGLE_PRODUCT", payload: prod})
-                console.log(singleProductState);
-                }}>
-                <Card.Title>{prod.title}</Card.Title>
-            </Link>
-                <Card.Subtitle>£{prod.price}</Card.Subtitle>
+            <Card.Body className='d-flex flex-column justify-content-between'>
+                <div>
+                <Link to="/product"
+                    className='reset-link-style' 
+                    onClick={() => {
+                        singleProductDispatch({type: "SET_SINGLE_PRODUCT", payload: prod})
+                    }}>
+                    <Card.Title className='fs-6'>{prod.title}</Card.Title>
+                </Link>
+                <Card.Subtitle className='subtitle'>£{prod.price}</Card.Subtitle>
                 <Rating rating={prod.rating} id={prod.id}/>
-                <AddToBasketBtn prod={prod}/>
+                </div> 
+                <AddToBasketBtn prod={prod} />
             </Card.Body>
         </Card>
     )
