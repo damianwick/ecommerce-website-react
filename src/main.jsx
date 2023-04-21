@@ -4,11 +4,14 @@ import App from './App'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Context from './context/Context'
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Context>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Context>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

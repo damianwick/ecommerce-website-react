@@ -1,5 +1,5 @@
 import { useEffect, createContext, useContext, useReducer } from "react"
-import { filterReducer, productReducer } from "./Reducers";
+import { filterReducer, productReducer, singleProdReducer } from "./Reducers";
 // import { fakeStore } from "./fakeStore";
 
 const Shop = createContext([]);
@@ -8,7 +8,7 @@ const Context = ({ children }) => {
     // fetching data as soon as the aplication loads
     const [stock, shopStateDispatch] = useReducer(productReducer, {
         products: [],
-        cart: [],
+        basket: [],
         saved: []
     })
 
@@ -24,11 +24,31 @@ const Context = ({ children }) => {
     const [productFilter, productFilterDispatch] = useReducer(filterReducer, {
         category: '',
         price: '',
-        rating: 0
+        rating: '',
+        isSaved: false, 
+        search: '',
+        filtersActive: false
+    })
+
+    const [singleProductState, singleProductDispatch] = useReducer(singleProdReducer, {
+        title: '', 
+        description: '',
+        image: '',
+        price: '',
+        rating: '',
+        id: ''
     })
 
     return (
-        <Shop.Provider value={{ stock, shopStateDispatch, productFilter, productFilterDispatch }}>
+        <Shop.Provider 
+            value={{ 
+                stock, 
+                shopStateDispatch, 
+                productFilter, 
+                productFilterDispatch, 
+                singleProductState, 
+                singleProductDispatch 
+            }}>
             {children}
         </Shop.Provider>
     )

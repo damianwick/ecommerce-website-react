@@ -2,7 +2,6 @@ import {
     Container, 
     Navbar,
     Button,
-    InputGroup,
     Form,
     CloseButton
    } from 'react-bootstrap'
@@ -17,7 +16,6 @@ export default function Header() {
     const [showSearch, setShowSearch] = useState(true)
     const [width, setWidth] = useState()
     const {
-        stock: { products },
         productFilterDispatch
     } = ShopState()
 
@@ -28,25 +26,22 @@ export default function Header() {
         setWidth(window.innerWidth)
        }) 
     }, [])
-    const breakpoint = 576
+    const breakpoint = 837
 
     return (
-        <Navbar bg='light' expand='false'>
+        <Navbar bg="secondary" expand='false'>
             <Container fluid>
                 {width > breakpoint ? (
                     <>
                     <Navbar.Brand style={{marginRight: '-10px'}}>
-                        <Link to='/' className='reset-link-style brand-link'>eCommerce</Link>
+                        <Link to='/' className='reset-link-style brand-link text-light'>eCommerce</Link>
                     </Navbar.Brand>
-                    <CategoriesSelection />
+                    <CategoriesSelection width={width} breakpoint={breakpoint}/>
                     <div style={{fontSize: 25}} className='d-flex align-items-center'>
                         <Form onSubmit={e => {
                                 e.preventDefault()
-                            }} 
-                            className='mt-2'
+                            }}
                         >
-                        <InputGroup size="sm">
-                            <InputGroup.Text id="inputGroup-sizing-sm"><BsSearch /></InputGroup.Text>
                             <Form.Control
                             aria-label="small"
                             aria-describedby="inputGroup-sizing-sm"    
@@ -56,7 +51,6 @@ export default function Header() {
                                 productFilterDispatch({type: "DISPLAY_SEARCH", payload: e.target.value})
                             }}
                             />
-                        </InputGroup>
                         </Form>
                         <BasketButton />
                     </div>
@@ -64,10 +58,12 @@ export default function Header() {
                 ) : (
                     showSearch ? (
                         <>
-                            <Navbar.Brand style={{marginRight: '-10px'}}>eCommerce</Navbar.Brand>
+                            <CategoriesSelection width={width} breakpoint={breakpoint} />
+                            <Navbar.Brand style={{marginRight: '-10px'}} className='text-light'>eCommerce</Navbar.Brand>
                             <div style={{fontSize: 25}} className='d-flex align-items-center'>
                                 <Button 
-                                    className='ms-2 btn btn-light fs-4'
+                                    className='ms-2 btn fs-4'
+                                    variant='secondary'
                                     onClick={handleSearchShow}
                                 >
                                     <BsSearch />
@@ -76,32 +72,28 @@ export default function Header() {
                             </div>
                          </>
                     ) : (
-                        <div className='d-flex align-items-center flex-row w-100'>
+                        <div className='d-flex align-items-center flex-row w-100 justify-content-center'>
                             <Form className='w-100'
+                                style={{maxWidth: 414}}
                                 onSubmit={e => {
                                     e.preventDefault()
                                 }} 
                             >
-                            <InputGroup size="lg">
-                            <InputGroup.Text id="inputGroup-sizing-sm"><BsSearch /></InputGroup.Text>
-                                    <Form.Control
-                                    aria-label="small"
-                                    aria-describedby="inputGroup-sizing-sm"    
-                                    type='search'                    
-                                    placeholder='Search'
-                                    onChange={e => {
-                                      productFilterDispatch({type: "DISPLAY_SEARCH", payload: e.target.value})
-                                    }}
-                                    />
-                                    
-                            </InputGroup>
+                                <Form.Control
+                                aria-label="small"
+                                aria-describedby="inputGroup-sizing-sm"
+                                type='search'                    
+                                placeholder='Search'
+
+                                onChange={e => {
+                                    productFilterDispatch({type: "DISPLAY_SEARCH", payload: e.target.value})
+                                }}
+                                />
                             </Form>
                             <CloseButton className='ms-2' onClick={handleSearchShow}/>
                         </div>
                     )
                 )}
-                
-                   
             </Container>
         </Navbar>   
     )

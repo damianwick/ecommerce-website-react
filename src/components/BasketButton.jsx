@@ -27,7 +27,7 @@ const BasketButton = () => {
 
     return (
         <>
-        <Button className='ms-2 btn btn-light fs-4' onClick={handleShowCart}>
+        <Button className='ms-2 btn fs-4' variant="secondary" size="sm"onClick={handleShowCart}>
             <BsCart /> 
             <span className="fs-6 ms-1">{basket.length}</span>
         </Button>
@@ -50,7 +50,7 @@ const BasketButton = () => {
                                 onClick={() => {
                                         shopStateDispatch(
                                             {
-                                            type: "REMOVE_FROM_CART", 
+                                            type: "REMOVE_FROM_BASKET", 
                                             payload: p.id
                                             }
                                         )
@@ -65,13 +65,12 @@ const BasketButton = () => {
                     </Row>
                     </Container>
                 ) : (
-                    <span>Basket is Empty</span>
+                    <span>Basket is empty</span>
                 )}
 
             </Offcanvas.Body>
         </Offcanvas>
         </>
-        
     )
 }
 

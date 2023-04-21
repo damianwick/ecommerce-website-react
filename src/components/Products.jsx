@@ -3,7 +3,7 @@ import { ShopState } from "../context/Context"
 import CategoriesSelection from "./CategoriesSelection"
 import Filters from "./Filters"
 import { Col, Container, Image, Row } from "react-bootstrap"
-import personShopping from '../assets/lady_shopping.jpg'
+import personShopping from '../assets/person-shopping.jpg'
 
 const Products = () => {
     const { 
@@ -36,16 +36,10 @@ const Products = () => {
     }
 
     return (
-        <>  
-            {/* <CategoriesSelection /> */}
+        <>      
+            <Image src={personShopping} fluid alt="person-shopping"/>
             <Container>
-                <Row>
-                    <Col>
-                        <Image src={personShopping} fluid alt="person-shopping"/>
-                    </Col>
-                </Row>
-            </Container>
-
+            
             <Filters />
             <div className="d-flex flex-wrap justify-content-center mt-2 mx-auto">
                {
@@ -54,7 +48,8 @@ const Products = () => {
                     )) 
                 }
                 
-            </div>  
+            </div>
+            </Container>  
         </>   
     )   
 }

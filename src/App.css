@@ -1,10 +1,17 @@
+.brand-link:hover{
+    color: inherit;
+}
+
 .home-divider{
     width: 80%;
-    height: 2px;
-    margin: 20px auto;
+    height: 1px;
+    margin: 10px auto;
     border: 1px;
     border-radius: 5px;
     background-color: black;
+}
+.divider-2{
+    width: 30%;
 }
 .overflow-scroll::-webkit-scrollbar {
     display: none;
@@ -16,11 +23,35 @@
 .removeIcon:hover{
     color: #dc3545;
 }
+
+/* PRODUCT CARD */
 .product-card-img{
     height: 150px;
     object-fit: contain;
 }
 
+.subtitle{
+    font-size: 1em !important;
+    font-weight: normal !important;
+}
+
+/* RATING */
 .rating-count{
     font-size: 0.8em;
 }
+
+.reset-link-style{
+    text-decoration: none !important;
+    color: black;
+}
+
+.product-card{
+    max-width: 45%;
+}
+
+@media (min-width: 576px) {
+    .product-card{
+        max-width: 200px;
+    }   
+}
+

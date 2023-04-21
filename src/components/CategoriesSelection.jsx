@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { Button, Container } from "react-bootstrap"
+import { Button, Container, ListGroup, Offcanvas } from "react-bootstrap"
 import { ShopState } from "../context/Context"
-const CategoriesSelection = () => {
+import { RxHamburgerMenu } from 'react-icons/rx'
+import { Link } from "react-router-dom"
+const CategoriesSelection = ({width, breakpoint}) => {
     const [categories, setCategories] = useState([
         {
             name: "All", 
@@ -25,6 +27,10 @@ const CategoriesSelection = () => {
         }
     ])
 
+    const [showNav, setShowNav] = useState(false)
+
+    const handleShowNav = () => setShowNav(!showNav)
+
     const { 
         productFilterDispatch,
         productFilter: {category}
@@ -36,34 +42,84 @@ const CategoriesSelection = () => {
 
     return (
         <>
-            <Container className="d-flex justify-content-center mt-2 overflow-scroll categories-container">   
-                {
-                categories.map((c) => (
-                    <span>
-                    {c.btnCategory === category ? (
+        {width > breakpoint ? (
+                    <Container className="d-flex justify-content-center mt-2 categories-container w-50">   
+                    {
+                    categories.map((c) => (
+                        <span>
+                            <Link to='/'>
+                        {c.btnCategory === category ? (
+                                <Button 
+                                size="sm"
+                                key={c.name}
+                                active 
+                                variant="secondary" 
+                                className="rounded-pill mx-1"
+                                onClick={() => handleClick(c)}
+                            >
+                                {c.name}
+                            </Button> 
+                        ) : (
                             <Button 
-                            key={c.name}
-                            active 
-                            variant="light" 
-                            className="rounded-pill mx-1 p-2"
+                            size="sm"
+                            key={c.name} 
+                            variant="secondary" 
+                            className="rounded-pill mx-1"
                             onClick={() => handleClick(c)}
                         >
                             {c.name}
                         </Button> 
-                    ) : (
-                        <Button 
-                        key={c.name} 
-                        variant="light" 
-                        className="rounded-pill mx-1 p-2"
-                        onClick={() => handleClick(c)}
-                    >
-                        {c.name}
-                    </Button> 
-                    )}
-                    </span>       
-                ))
-            }
-            </Container>
+                        )}
+                        </Link>
+                        </span>       
+                    ))
+                    }
+                    </Container>
+        ) : (
+            <>
+            <Button 
+            onClick={handleShowNav}
+            variant='secondary'
+            >    
+             <RxHamburgerMenu className="fs-4"/>
+            </Button>
+            <Offcanvas show={showNav} onHide={handleShowNav}>
+                <Offcanvas.Header closeButton>Categories</Offcanvas.Header>
+                <Offcanvas.Body>
+                <ListGroup>
+                {categories.map((c) => (
+                        <Link to="/">
+                        {c.btnCategory === category ? (
+                                <Button 
+                                key={c.name}
+                                active
+                                variant="light" 
+                                className="list-item m-1 rounded-pill w-100"
+                                onClick={() => handleClick(c)}
+                            >
+                                {c.name}
+                            </Button> 
+                        ) : (
+                            <Button 
+                            key={c.name} 
+                            className="list-item m-1 rounded-pill w-100"
+                            variant="light"
+                            onClick={() => handleClick(c)}
+                        >
+                            {c.name}
+                        </Button> 
+                        )}
+                        </Link>
+                         
+                    ))    
+                }
+                    </ListGroup>  
+
+                </Offcanvas.Body>
+            </Offcanvas>
+            </>
+        )}
+           
         </>
         
     )

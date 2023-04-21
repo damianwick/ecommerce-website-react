@@ -12,9 +12,9 @@ const Filters = () => {
     } = ShopState()
     
     return (
-        <Container className='d-flex align-items-center justify-content-center'>
-            <Dropdown className='me-2'>
-                    <Dropdown.Toggle variant='outline-secondary' active={productFilter.price} className='rounded-pill'>Price</Dropdown.Toggle>
+        <Container className='d-flex align-items-center justify-content-start mt-3'>
+            <Dropdown className='me-2 '> 
+                    <Dropdown.Toggle variant='light' active={productFilter.price} className='rounded-pill btn btn-sm '>Price</Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={() => {
                         productFilterDispatch(
@@ -30,8 +30,8 @@ const Filters = () => {
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
-            <Dropdown className='me-2'>
-                    <Dropdown.Toggle variant='outline-secondary' active={productFilter.rating} className='rounded-pill'>Rating</Dropdown.Toggle>
+            <Dropdown className='me-2 btn btn-sm'>
+                    <Dropdown.Toggle variant='light' active={productFilter.rating} className='rounded-pill btn btn-sm'>Rating</Dropdown.Toggle>
                 <Dropdown.Menu>
                         {stars.map((s) => (
                               <Dropdown.Item onClick={() => {
@@ -45,15 +45,16 @@ const Filters = () => {
                 </Dropdown.Menu>
             </Dropdown>
                     <Button 
-                    className='rounded-pill' 
-                    variant='outline-secondary'
+                    className='rounded-pill btn btn-sm' 
+                    variant='light'
+                    style={{height: 31}}
                     disabled={!saved.length}
                     active={productFilter.isSaved}
                     onClick={() => {
                         productFilterDispatch({type: 'DISPLAY_SAVED'}
                         )}}
                 >
-                    Saved <AiFillHeart className='fs-4' />
+                    Saved <AiFillHeart className='fs-5 mb-1' />
                 </Button>    
                 {productFilter.filtersActive ? (
                     <CloseButton className="ms-1" onClick={() => {
