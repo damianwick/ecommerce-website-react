@@ -49,6 +49,11 @@
     max-width: 45%;
 }
 
+.underline-section-title{
+    width: 180px;
+    background-color: pink;
+}
+
 @media (min-width: 576px) {
     .product-card{
         max-width: 200px;

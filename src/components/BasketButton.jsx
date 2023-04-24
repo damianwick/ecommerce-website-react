@@ -1,8 +1,9 @@
-import { Button, Offcanvas, Container, Row } from "react-bootstrap"
+import { Button, Offcanvas, Container, Row, Col } from "react-bootstrap"
 import { BsCart } from "react-icons/bs"
 import { useEffect, useState } from "react"
 import { ShopState } from "../context/Context"
 import { ImBin } from "react-icons/im"
+import { Link } from "react-router-dom"
 const BasketButton = () => {
     const { 
         stock: { basket },
@@ -59,9 +60,21 @@ const BasketButton = () => {
                             </span>
                         </div>
                     ))}
-                    <h1 className="text-center">Total: £{cartTotal} </h1>
+
+                    <hr />
+                    <Row className="mb-4 fs-2">
+                        <Col>
+                            <span>Total:</span> 
+                        </Col>
+                        <Col className="justify-content-end d-flex">
+                            <span className="">£{cartTotal} </span>
+                        </Col>
+                    </Row>
+                    
                     <Row className="justify-content-center">
-                        <Button variant="dark" className="rounded-pill w-75">Go to checkout</Button>
+                        <Link to='/checkout' className="w-75">
+                            <Button variant="dark" className="rounded-pill w-100">Checkout</Button>
+                        </Link>
                     </Row>
                     </Container>
                 ) : (
