@@ -4,7 +4,7 @@ import './App.scss'
 import Header from './components/Header'
 import Products from './components/Products'
 import Checkout from './components/Checkout'
-import ProductPage from './components/productPage'
+import ProductPage from './components/ProductPage'
 import Footer from './components/Footer'
 
 function App() {
