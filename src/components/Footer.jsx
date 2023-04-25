@@ -10,7 +10,7 @@ export default function Footer() {
                 d-flex 
                 flex-column 
                 justify-content-center 
-                bg-secondary 
+                cyan
                 text-light
             '>
             <Row>
@@ -28,18 +28,18 @@ export default function Footer() {
                 style={{maxWidth: "100px"}}
                 >
                     <a 
-                    href="https://github.com/damianwick"   
-                    target='_blank' 
-                    type='button' 
-                    className='text-light'
+                        href="https://github.com/damianwick"   
+                        target='_blank' 
+                        type='button' 
+                        className='text-light'
                     >
                         <AiFillGithub className='footer-link' />
                     </a>
                     <a 
-                    href="https://www.linkedin.com/in/damianwiecek/" 
-                    target='_blank' 
-                    type='button' 
-                    className='text-light'
+                        href="https://www.linkedin.com/in/damianwiecek/" 
+                        target='_blank' 
+                        type='button' 
+                        className='text-light'
                     >
                         <AiFillLinkedin className='footer-link'/>
                     </a>

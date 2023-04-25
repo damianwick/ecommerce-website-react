@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import AddToBasketBtn from './AddToBasketBtn'
 import HeartBtn from './HeartBtn'
 
-
 const ProductCard = ({ prod }) => {
     const {
         singleProductDispatch 

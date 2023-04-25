@@ -51,10 +51,12 @@ const Checkout = () => {
         </Link>
         
         <Container fluid='sm' className='mb-5 mt-3'>
+
             <h1>Checkout</h1>
+
             <hr className='underline-section-title'/>
+
             <Row>
-                
                 <Form noValidate validated={validated} onSubmit={handleSubmit} className='d-md-flex justify-content-around'>
                 <Col md={6} xxl={5}>
                     <Form.Text
@@ -67,7 +69,7 @@ const Checkout = () => {
                             type='text'
                             aria-Label='Full name'
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col}>
                         <Form.Label>Phone number</Form.Label>
@@ -76,7 +78,7 @@ const Checkout = () => {
                             type='tel'
                             aria-Label='Phone number' 
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col}>
                         <Form.Label>Email address</Form.Label>
@@ -85,9 +87,8 @@ const Checkout = () => {
                             type='email'
                             aria-Label='Phone number' 
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
-                    
                     <Form.Group>
                         <Form.Label>Postcode</Form.Label>
                         <Form.Control
@@ -95,7 +96,7 @@ const Checkout = () => {
                             type='text'
                             aria-Label='Postcode' 
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Address line 1 (or Company Name)</Form.Label>
@@ -104,7 +105,7 @@ const Checkout = () => {
                             type='text'
                             ario-Label='Address line 2 (or Company Name)' 
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Address line 2 (optional)</Form.Label>
@@ -112,7 +113,7 @@ const Checkout = () => {
                             type='text' 
                             aria-Label='Address line 1 (optional)'
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Town/City</Form.Label>
@@ -121,7 +122,7 @@ const Checkout = () => {
                             type='text'
                             aria-Label='Town or City' 
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>County (if applicable)</Form.Label>
@@ -129,7 +130,7 @@ const Checkout = () => {
                             type='text'
                             aria-Label='County (if applicable)' 
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Delivery instructions (optional)</Form.Label>
@@ -139,6 +140,7 @@ const Checkout = () => {
                             style={{maxHeight: 150}}
                             />
                     </Form.Group>
+                    
                     <hr className='w-75 mx-auto my-4'/>
 
                     <Form.Text className='fs-3'>Payment details</Form.Text>
@@ -152,7 +154,7 @@ const Checkout = () => {
                             placeholder='xxxx xxxx xxxx xxxx'
                             aria-Label='Debit/credit card' 
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Name on the card</Form.Label>
@@ -162,7 +164,7 @@ const Checkout = () => {
                             placeholder='John Smith'
                             aria-Label='Name on the card' 
                         />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Row>
                         <Form.Group as={Col}>
@@ -173,7 +175,7 @@ const Checkout = () => {
                                 placeholder='mm / dd'
                                 aria-Label='Expiry date' 
                             />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>CVV</Form.Label>
@@ -183,7 +185,7 @@ const Checkout = () => {
                                 placeholder='xxx'
                                 aria-Label='CVV' 
                             />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
                     </Row>
                 
@@ -219,29 +221,40 @@ const Checkout = () => {
                     </Col>
                     <Col md={5} lg={4} className='d-flex flex-column'>
                     <>
-                    {basket.map(p => (
-                            <div className="d-flex justify-content-between align-items-center mb-1 p-1" style={{backgroundColor: "#f2f2f2"}}>
-                                <img src={p.image} style={{width: "50px", height: "50px", objectFit: "contain"}}/>
-                                <div className="mx-2 my-1 w-75" style={{ }}>
-                                    <h6>{p.title}</h6>
-                                    <span>£{p.price}</span>
+                        {basket.map(p => (
+                                <div 
+                                    className="
+                                        d-flex 
+                                        justify-content-between 
+                                        align-items-center 
+                                        mb-1 
+                                        p-1
+                                    " 
+                                    style={{backgroundColor: "#f2f2f2"}}
+                                >
+                                    <img src={p.image} style={{width: "50px", height: "50px", objectFit: "contain"}}/>
+                                    <div className="mx-2 my-1 w-75" style={{ }}>
+                                        <h6>{p.title}</h6>
+                                        <span>£{p.price}</span>
+                                    </div>
+                                    <span
+                                        className="removeIcon"  
+                                        onClick={() => {
+                                                shopStateDispatch(
+                                                    {
+                                                    type: "REMOVE_FROM_BASKET", 
+                                                    payload: p.id
+                                                    }
+                                                )
+                                        }} >
+                                        <ImBin />
+                                    </span>
                                 </div>
-                                <span
-                                    className="removeIcon"  
-                                    onClick={() => {
-                                            shopStateDispatch(
-                                                {
-                                                type: "REMOVE_FROM_BASKET", 
-                                                payload: p.id
-                                                }
-                                            )
-                                    }} >
-                                    <ImBin />
-                                </span>
-                            </div>
-                        ))}
+                            ))}
                     </>
+
                         <hr className='w-75 mx-auto my-4'/>
+
                     <Row>
                         <Col>
                             <span>Items:</span> 
@@ -274,13 +287,14 @@ const Checkout = () => {
                             rounded-pill
                             align-self-canter
                             '
-                    >Buy now</Button>
+                    >
+                        Buy now
+                    </Button>
                     </Col>
                 </Form>  
             </Row>
         </Container>
     </>
-    
 }
 
 export default Checkout

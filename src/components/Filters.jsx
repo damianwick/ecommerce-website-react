@@ -14,7 +14,13 @@ const Filters = () => {
     return (
         <Container className='d-flex align-items-center justify-content-start mt-3'>
             <Dropdown className='me-2 '> 
-                    <Dropdown.Toggle variant='light' active={productFilter.price} className='rounded-pill btn btn-sm '>Price</Dropdown.Toggle>
+                    <Dropdown.Toggle 
+                        variant='light' 
+                        active={productFilter.price} 
+                        className='rounded-pill btn btn-sm'
+                    >
+                        Price
+                    </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={() => {
                         productFilterDispatch(
@@ -31,7 +37,13 @@ const Filters = () => {
                 </Dropdown.Menu>
             </Dropdown>
             <Dropdown className='me-2 btn btn-sm'>
-                    <Dropdown.Toggle variant='light' active={productFilter.rating} className='rounded-pill btn btn-sm'>Rating</Dropdown.Toggle>
+                    <Dropdown.Toggle 
+                        variant='light'
+                        active={productFilter.rating} 
+                        className='rounded-pill btn btn-sm'
+                    >
+                        Rating
+                    </Dropdown.Toggle>
                 <Dropdown.Menu>
                         {stars.map((s) => (
                               <Dropdown.Item onClick={() => {
@@ -62,7 +74,6 @@ const Filters = () => {
                         }}/>
                 ): ('')} 
         </Container>
-
     )
 }
 

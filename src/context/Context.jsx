@@ -1,11 +1,9 @@
 import { useEffect, createContext, useContext, useReducer } from "react"
 import { filterReducer, productReducer, singleProdReducer } from "./Reducers";
-// import { fakeStore } from "./fakeStore";
 
 const Shop = createContext([]);
 
 const Context = ({ children }) => {    
-    // fetching data as soon as the aplication loads
     const [stock, shopStateDispatch] = useReducer(productReducer, {
         products: [],
         basket: [],
@@ -18,7 +16,7 @@ const Context = ({ children }) => {
             .then(p => {
                 shopStateDispatch({type: 'SET_PRODUCTS', payload: p})
             })
-            .catch(err => console.log('we\'re in a pickle: ' + err.message))
+            .catch(err => console.log('ERROR MESSAGE: ' + err.message))
     }, [])
     
     const [productFilter, productFilterDispatch] = useReducer(filterReducer, {

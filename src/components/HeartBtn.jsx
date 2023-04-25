@@ -10,21 +10,21 @@ const HeartBtn = ({prod, style}) => {
         <>
             {saved.some(p => p.id === prod.id) ? (
                 <span   
-                className='
-                    btn 
-                    shadow-sm
-                    rounded-pill 
-                    btn-light 
-                    d-flex 
-                    justify-content-center 
-                    align-items-center
-                    fs-4' 
-                style={
-                    {height: 40, width: 40, ...style}
-                }
-                onClick={() => {
-                    shopStateDispatch({type: 'REMOVE_FROM_SAVED', payload: prod.id})
-                }}
+                    className='
+                        btn 
+                        shadow-sm
+                        rounded-pill 
+                        btn-light 
+                        d-flex 
+                        justify-content-center 
+                        align-items-center
+                        fs-4' 
+                    style={
+                        {height: 40, width: 40, ...style}
+                    }
+                    onClick={() => {
+                        shopStateDispatch({type: 'REMOVE_FROM_SAVED', payload: prod.id})
+                    }}
                 >
                     {saved.some((p) => p.id === prod.id) ? (
                         <AiFillHeart />
@@ -34,21 +34,21 @@ const HeartBtn = ({prod, style}) => {
             </span>
             ) : (
                 <span   
-                className='
-                    btn 
-                    shadow-sm
-                    rounded-pill 
-                    btn-light 
-                    d-flex 
-                    justify-content-center 
-                    align-items-center
-                    fs-4' 
-                style={
-                    {height: 40, width: 40, ...style}
-                }
-                onClick={() => {
-                    shopStateDispatch({type: 'ADD_TO_SAVED', payload: prod})
-                }}
+                    className='
+                        btn 
+                        shadow-sm
+                        rounded-pill 
+                        btn-light 
+                        d-flex 
+                        justify-content-center 
+                        align-items-center
+                        fs-4' 
+                    style={
+                        {height: 40, width: 40, ...style}
+                    }
+                    onClick={() => {
+                        shopStateDispatch({type: 'ADD_TO_SAVED', payload: prod})
+                    }}
                 >
                     {saved.some((p) => p.id === prod.id) ? (
                         <AiFillHeart />
@@ -57,7 +57,7 @@ const HeartBtn = ({prod, style}) => {
                     )}
             </span>
             )}
-    </>
+      </>
     )
 }
 

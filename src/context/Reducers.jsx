@@ -6,8 +6,6 @@ export const productReducer = (state, action) => {
             return {...state, basket: [...state.basket, action.payload]}
         case 'REMOVE_FROM_BASKET':
             return {...state, basket: [...state.basket.filter((p) => p.id !== action.payload)]}
-        case 'CHANGE_PRODUCT_CATEGORY':
-            return {...state, products: [...state.products.filter((p) => p.category === action.payload)]}
         case 'ADD_TO_SAVED':
             return {...state, saved: [...state.saved, action.payload]}
         case 'REMOVE_FROM_SAVED':

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { ShopState } from "../context/Context"
 import { ImBin } from "react-icons/im"
 import { Link } from "react-router-dom"
+
 const Basket = () => {
     const { 
         stock: { basket },
@@ -22,13 +23,11 @@ const Basket = () => {
         }, 0))
     })
         
-    
-    
     const handleShowCart = () => setShowCart(!showCart)
 
     return (
         <>
-        <Button className='ms-2 btn fs-4' variant="secondary" size="sm" onClick={handleShowCart}>
+        <Button className='ms-2 btn fs-4 text-white' variant="none" size="sm" onClick={handleShowCart}>
             <BsCart /> 
             <span className="fs-6 ms-1">{basket.length}</span>
         </Button>
@@ -40,9 +39,22 @@ const Basket = () => {
                 {basket.length ? (
                     <Container className="">                    
                     {basket.map(p => (
-                        <div className="d-flex justify-content-between align-items-center mb-1 p-1" style={{backgroundColor: "#f2f2f2"}}>
-                            <img src={p.image} style={{width: "50px", height: "50px", objectFit: "contain"}}/>
-                            <div className="mx-2 my-1 w-75" style={{ }}>
+                        <div 
+                            className="
+                                d-flex 
+                                justify-content-between 
+                                align-items-center 
+                                mb-1 p-1
+                            " 
+                            style={{backgroundColor: "#f2f2f2"}}>
+                            <img src={p.image} 
+                                style={{
+                                    width: "50px", 
+                                    height: "50px", 
+                                    objectFit: "contain"
+                                    }}
+                            />
+                            <div className="mx-2 my-1 w-75">
                                 <h6>{p.title}</h6>
                                 <span>£{p.price}</span>
                             </div>
@@ -55,19 +67,18 @@ const Basket = () => {
                                             payload: p.id
                                             }
                                         )
-                                }} >
+                                }}>
                                 <ImBin />
                             </span>
                         </div>
                     ))}
-
                     <hr />
                     <Row className="mb-4 fs-2">
                         <Col>
                             <span>Total:</span> 
                         </Col>
                         <Col className="justify-content-end d-flex">
-                            <span className="">£{cartTotal} </span>
+                            <span className="">£{cartTotal}</span>
                         </Col>
                     </Row>
                     
@@ -80,7 +91,6 @@ const Basket = () => {
                 ) : (
                     <span>Basket is empty</span>
                 )}
-
             </Offcanvas.Body>
         </Offcanvas>
         </>
