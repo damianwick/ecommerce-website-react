@@ -53,7 +53,7 @@ const CategoriesSelection = ({width, breakpoint}) => {
                                 size="sm"
                                 key={c.name}
                                 active 
-                                variant="secondary" 
+                                variant="outline-light" 
                                 className="rounded-pill mx-1"
                                 onClick={() => handleClick(c)}
                             >
@@ -63,7 +63,8 @@ const CategoriesSelection = ({width, breakpoint}) => {
                             <Button 
                             size="sm"
                             key={c.name} 
-                            variant="secondary" 
+                            variant="none"
+                            style={{color: '#fff'}} 
                             className="rounded-pill mx-1"
                             onClick={() => handleClick(c)}
                         >
@@ -79,7 +80,8 @@ const CategoriesSelection = ({width, breakpoint}) => {
             <>
             <Button 
             onClick={handleShowNav}
-            variant='secondary'
+            variant='none'
+            className="text-white"
             >    
              <RxHamburgerMenu className="fs-4"/>
             </Button>
@@ -93,7 +95,7 @@ const CategoriesSelection = ({width, breakpoint}) => {
                                 <Button 
                                 key={c.name}
                                 active
-                                variant="light" 
+                                variant="outline-light" 
                                 className="list-item m-1 rounded-pill w-100"
                                 onClick={() => {
                                     handleClick(c)
@@ -106,7 +108,7 @@ const CategoriesSelection = ({width, breakpoint}) => {
                             <Button 
                             key={c.name} 
                             className="list-item m-1 rounded-pill w-100"
-                            variant="light"
+                            variant="none"
                             onClick={() => {
                                 handleClick(c)
                                 handleShowNav()

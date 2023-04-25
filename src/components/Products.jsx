@@ -1,8 +1,7 @@
 import ProductCard from "./ProductCard"
 import { ShopState } from "../context/Context"
-import CategoriesSelection from "./CategoriesSelection"
 import Filters from "./Filters"
-import { Col, Container, Image, Row } from "react-bootstrap"
+import { Container, Image} from "react-bootstrap"
 import personShopping from '../assets/person-shopping.jpg'
 
 const Products = () => {
@@ -39,15 +38,21 @@ const Products = () => {
         <>      
             <Image src={personShopping} fluid alt="person-shopping"/>
             <Container>
-            
             <Filters />
-            <div className="d-flex flex-wrap justify-content-center mt-2 mx-auto">
+            <div 
+                className="
+                    d-flex 
+                    flex-wrap 
+                    justify-content-center 
+                    mt-2 
+                    mx-auto
+                " 
+                style={{paddingBottom: 200}}>
                {
                     filterProducts().map((p) => (
                         <ProductCard prod={p}/>
                     )) 
                 }
-                
             </div>
             </Container>  
         </>   

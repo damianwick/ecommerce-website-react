@@ -14,7 +14,7 @@ import Basket from './Basket'
 
 export default function Header() {
     const [showSearch, setShowSearch] = useState(true)
-    const [width, setWidth] = useState()
+    const [width, setWidth] = useState(window.innerWidth)
     const {
         productFilterDispatch
     } = ShopState()
@@ -29,7 +29,7 @@ export default function Header() {
     const breakpoint = 837
 
     return (
-        <Navbar bg="secondary" expand='false'>
+        <Navbar className='cyan' expand='false'>
             <Container fluid>
                 {width > breakpoint ? (
                     <>
@@ -62,8 +62,8 @@ export default function Header() {
                             <Navbar.Brand style={{marginRight: '-10px'}} className='text-light'>eCommerce</Navbar.Brand>
                             <div style={{fontSize: 25}} className='d-flex align-items-center'>
                                 <Button 
-                                    className='ms-2 btn fs-4'
-                                    variant='secondary'
+                                    className='ms-2 btn fs-4 text-white'
+                                    variant='none'
                                     onClick={handleSearchShow}
                                 >
                                     <BsSearch />
@@ -90,7 +90,7 @@ export default function Header() {
                                 }}
                                 />
                             </Form>
-                            <CloseButton className='ms-2' onClick={handleSearchShow}/>
+                            <CloseButton className='ms-2' variant='white'  onClick={handleSearchShow}/>
                         </div>
                     )
                 )}
