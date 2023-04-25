@@ -1,0 +1,60 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+.cyan{
+    background-color: $cyan-800;
+}
+
+.brand-link:hover{
+    color: inherit;
+}
+
+.overflow-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.overflow-scroll{
+    -ms-overfloow-style: none;
+    scrollbar-width: none;
+}
+
+.removeIcon:hover{
+    color: #dc3545;
+}
+
+/* PRODUCT CARD */
+.product-card-img{
+    height: 150px;
+    object-fit: contain;
+}
+
+.subtitle{
+    font-size: 1em !important;
+    font-weight: normal !important;
+}
+
+/* RATING */
+.rating-count{
+    font-size: 0.8em;
+}
+
+.reset-link-style{
+    text-decoration: none !important;
+    color: black;
+}
+
+.product-card{
+    max-width: 45%;
+}
+
+.underline-section-title{
+    width: 180px;
+}
+
+@media (min-width: 576px) {
+    .product-card{
+        max-width: 200px;
+    }   
+}
+
