@@ -23,8 +23,6 @@ const Checkout = () => {
 
     useEffect(() => {
         window.addEventListener('resize', () => setWidth(window.innerWidth))
-        console.log(width);
-
     }, [])
 
     const deliveryPrices = {
@@ -67,7 +65,7 @@ const Checkout = () => {
                         <Form.Control
                             required
                             type='text'
-                            aria-Label='Full name'
+                            aria-label='Full name'
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -76,7 +74,7 @@ const Checkout = () => {
                         <Form.Control
                             required        
                             type='tel'
-                            aria-Label='Phone number' 
+                            aria-label='Phone number' 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -85,7 +83,7 @@ const Checkout = () => {
                         <Form.Control
                             required        
                             type='email'
-                            aria-Label='Phone number' 
+                            aria-label='Phone number' 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -94,7 +92,7 @@ const Checkout = () => {
                         <Form.Control
                             required
                             type='text'
-                            aria-Label='Postcode' 
+                            aria-label='Postcode' 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -103,7 +101,7 @@ const Checkout = () => {
                         <Form.Control
                             required
                             type='text'
-                            ario-Label='Address line 2 (or Company Name)' 
+                            aria-label='Address line 2 (or Company Name)' 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -111,7 +109,7 @@ const Checkout = () => {
                         <Form.Label>Address line 2 (optional)</Form.Label>
                         <Form.Control
                             type='text' 
-                            aria-Label='Address line 1 (optional)'
+                            aria-label='Address line 1 (optional)'
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -120,7 +118,7 @@ const Checkout = () => {
                         <Form.Control
                             required
                             type='text'
-                            aria-Label='Town or City' 
+                            aria-label='Town or City' 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -128,7 +126,7 @@ const Checkout = () => {
                         <Form.Label>County (if applicable)</Form.Label>
                         <Form.Control
                             type='text'
-                            aria-Label='County (if applicable)' 
+                            aria-label='County (if applicable)' 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -136,7 +134,7 @@ const Checkout = () => {
                         <Form.Label>Delivery instructions (optional)</Form.Label>
                         <Form.Control 
                             as="textarea"
-                            aria-Label='Delivery instructions'
+                            aria-label='Delivery instructions'
                             style={{maxHeight: 150}}
                             />
                     </Form.Group>
@@ -152,7 +150,7 @@ const Checkout = () => {
                             type='tel'
                             pattern="[0-9\s]{13,19}"
                             placeholder='xxxx xxxx xxxx xxxx'
-                            aria-Label='Debit/credit card' 
+                            aria-label='Debit/credit card' 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -162,7 +160,7 @@ const Checkout = () => {
                             required
                             type='text'
                             placeholder='John Smith'
-                            aria-Label='Name on the card' 
+                            aria-label='Name on the card' 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -173,7 +171,7 @@ const Checkout = () => {
                                 required
                                 type='text'
                                 placeholder='mm / dd'
-                                aria-Label='Expiry date' 
+                                aria-label='Expiry date' 
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
@@ -183,7 +181,7 @@ const Checkout = () => {
                                 required
                                 type='text'
                                 placeholder='xxx'
-                                aria-Label='CVV' 
+                                aria-label='CVV' 
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
@@ -223,6 +221,7 @@ const Checkout = () => {
                     <>
                         {basket.map(p => (
                                 <div 
+                                    key={p.id}
                                     className="
                                         d-flex 
                                         justify-content-between 

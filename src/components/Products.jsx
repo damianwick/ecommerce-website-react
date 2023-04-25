@@ -50,7 +50,7 @@ const Products = () => {
                 style={{paddingBottom: 200}}>
                {
                     filterProducts().map((p) => (
-                        <ProductCard prod={p}/>
+                        <ProductCard prod={p} key={p.id}/>
                     )) 
                 }
             </div>

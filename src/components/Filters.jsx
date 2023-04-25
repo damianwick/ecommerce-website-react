@@ -6,7 +6,7 @@ import { ShopState } from '../context/Context'
 const Filters = () => {
     const [stars, setStars] = useState([4, 3, 2, 1])
     const { 
-        stock: {saved},
+        stock: { saved },
         productFilterDispatch, 
         productFilter, 
     } = ShopState()
@@ -45,12 +45,14 @@ const Filters = () => {
                         Rating
                     </Dropdown.Toggle>
                 <Dropdown.Menu>
-                        {stars.map((s) => (
-                              <Dropdown.Item onClick={() => {
+                        {stars.map((s, i) => (
+                              <Dropdown.Item 
+                                key={i}
+                                onClick={() => {
                                 productFilterDispatch({type: "SORT_BY_RATING", payload: s})
                                 }}>
-                                {[...Array(s)].map(() => <AiFillStar /> )}
-                                {[...Array(5 - s)].map(() => <AiOutlineStar /> )}
+                                {[...Array(s)].map((_, j) => <AiFillStar key={j} /> )}
+                                {[...Array(5 - s)].map((_, j) => <AiOutlineStar key={j} /> )}
                                 <span> & up</span>
                              </Dropdown.Item>)
                         )}

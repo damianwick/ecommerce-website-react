@@ -11,8 +11,8 @@ const ProductCard = ({ prod }) => {
     } = ShopState()
 
     return (
-        <Card className='w-50 m-2 d-flex flex-column product-card' key={prod.id}>
-            <HeartBtn prod={prod} style={{position: "absolute", top: "10px", right: "10px"}}/>
+        <Card className='w-50 m-2 d-flex flex-column product-card'>
+            <HeartBtn prod={prod} style={{position: "absolute", top: "10px", right: "10px"}} />
             <Card.Img variant="top" src={prod.image} className='product-card-img mt-2'/>
             <Card.Body className='d-flex flex-column justify-content-between'>
                 <div>

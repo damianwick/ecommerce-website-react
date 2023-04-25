@@ -27,72 +27,73 @@ const Basket = () => {
 
     return (
         <>
-        <Button className='ms-2 btn fs-4 text-white' variant="none" size="sm" onClick={handleShowCart}>
-            <BsCart /> 
-            <span className="fs-6 ms-1">{basket.length}</span>
-        </Button>
-        <Offcanvas show={showCart} onHide={handleShowCart} placement="end">
-            <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Basket</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-                {basket.length ? (
-                    <Container className="">                    
-                    {basket.map(p => (
-                        <div 
-                            className="
-                                d-flex 
-                                justify-content-between 
-                                align-items-center 
-                                mb-1 p-1
-                            " 
-                            style={{backgroundColor: "#f2f2f2"}}>
-                            <img src={p.image} 
-                                style={{
-                                    width: "50px", 
-                                    height: "50px", 
-                                    objectFit: "contain"
-                                    }}
-                            />
-                            <div className="mx-2 my-1 w-75">
-                                <h6>{p.title}</h6>
-                                <span>£{p.price}</span>
+            <Button className='ms-2 btn fs-4 text-white' variant="none" size="sm" onClick={handleShowCart}>
+                <BsCart /> 
+                <span className="fs-6 ms-1">{basket.length}</span>
+            </Button>
+            <Offcanvas show={showCart} onHide={handleShowCart} placement="end">
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Basket</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    {basket.length ? (
+                        <Container className="">                    
+                        {basket.map(p => (
+                            <div 
+                                key={p.id}
+                                className="
+                                    d-flex 
+                                    justify-content-between 
+                                    align-items-center 
+                                    mb-1 p-1
+                                " 
+                                style={{backgroundColor: "#f2f2f2"}}>
+                                <img src={p.image} 
+                                    style={{
+                                        width: "50px", 
+                                        height: "50px", 
+                                        objectFit: "contain"
+                                        }}
+                                />
+                                <div className="mx-2 my-1 w-75">
+                                    <h6>{p.title}</h6>
+                                    <span>£{p.price}</span>
+                                </div>
+                                <span
+                                    className="removeIcon"  
+                                    onClick={() => {
+                                            shopStateDispatch(
+                                                {
+                                                type: "REMOVE_FROM_BASKET", 
+                                                payload: p.id
+                                                }
+                                            )
+                                    }}>
+                                    <ImBin />
+                                </span>
                             </div>
-                            <span
-                                className="removeIcon"  
-                                onClick={() => {
-                                        shopStateDispatch(
-                                            {
-                                            type: "REMOVE_FROM_BASKET", 
-                                            payload: p.id
-                                            }
-                                        )
-                                }}>
-                                <ImBin />
-                            </span>
-                        </div>
-                    ))}
-                    <hr />
-                    <Row className="mb-4 fs-2">
-                        <Col>
-                            <span>Total:</span> 
-                        </Col>
-                        <Col className="justify-content-end d-flex">
-                            <span className="">£{cartTotal}</span>
-                        </Col>
-                    </Row>
-                    
-                    <Row className="justify-content-center">
-                        <Link to='/checkout' className="w-75">
-                            <Button variant="dark" className="rounded-pill w-100" onClick={handleShowCart}>Checkout</Button>
-                        </Link>
-                    </Row>
-                    </Container>
-                ) : (
-                    <span>Basket is empty</span>
-                )}
-            </Offcanvas.Body>
-        </Offcanvas>
+                        ))}
+                        <hr />
+                        <Row className="mb-4 fs-2">
+                            <Col>
+                                <span>Total:</span> 
+                            </Col>
+                            <Col className="justify-content-end d-flex">
+                                <span className="">£{cartTotal}</span>
+                            </Col>
+                        </Row>
+                        
+                        <Row className="justify-content-center">
+                            <Link to='/checkout' className="w-75">
+                                <Button variant="dark" className="rounded-pill w-100" onClick={handleShowCart}>Checkout</Button>
+                            </Link>
+                        </Row>
+                        </Container>
+                    ) : (
+                        <span>Basket is empty</span>
+                    )}
+                </Offcanvas.Body>
+            </Offcanvas>
         </>
     )
 }

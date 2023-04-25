@@ -17,8 +17,9 @@ const Context = ({ children }) => {
                 shopStateDispatch({type: 'SET_PRODUCTS', payload: p})
             })
             .catch(err => console.log('ERROR MESSAGE: ' + err.message))
-    }, [])
+    },[stock.products] )
     
+
     const [productFilter, productFilterDispatch] = useReducer(filterReducer, {
         category: '',
         price: '',

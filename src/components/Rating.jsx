@@ -3,11 +3,10 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 const Rating = ({ rating }) => {
 const { rate, count } = rating
 
-    return <>
-            
+    return <>   
         {
             [...Array(5)].map((_, i) => (
-                    <span>
+                    <span key={i}>
                         {Math.round(rate) > i ? (
                             <AiFillStar className='text-warning'/>
                         ) : (
@@ -15,11 +14,9 @@ const { rate, count } = rating
                         )}
                     </span>
             ))                
-        }
-                
+        }       
             <span className='rating-count'> ({count})</span>
         </>
-    
 }
 
 export default Rating
