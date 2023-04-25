@@ -95,7 +95,10 @@ const CategoriesSelection = ({width, breakpoint}) => {
                                 active
                                 variant="light" 
                                 className="list-item m-1 rounded-pill w-100"
-                                onClick={() => handleClick(c)}
+                                onClick={() => {
+                                    handleClick(c)
+                                    handleShowNav()
+                                }}
                             >
                                 {c.name}
                             </Button> 
@@ -104,7 +107,10 @@ const CategoriesSelection = ({width, breakpoint}) => {
                             key={c.name} 
                             className="list-item m-1 rounded-pill w-100"
                             variant="light"
-                            onClick={() => handleClick(c)}
+                            onClick={() => {
+                                handleClick(c)
+                                handleShowNav()
+                            }}
                         >
                             {c.name}
                         </Button> 

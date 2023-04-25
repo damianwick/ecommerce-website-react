@@ -1,36 +1,3 @@
-/* footer{
-    text-align: center;
-    font-size: 1rem;
-    margin: 48px auto 0;
-    height: 200px;
-}
-footer p{
-    font-size: 1em;
-    letter-spacing: 0.3px;
-}
-.footer-icons-container{
-    margin: 0 auto;
-    width: 110px;
-    text-align: center;
-    font-size: 2em;
-}
-.footer-icons-container a:nth-child(1){
-    margin-right: 24px ;
-}
-.footer-icons-container a{
-    transition: color 0.1s ease-in;
-    color: black;
-}
-.footer-icons-container a:hover {
-    color: #FF8383;
-}
-@media only screen and (max-width: 1024px) {
-    footer{
-        margin-top: 70px;
-    }
-} */
-
-
 .footer-link:hover {
     fill: #C6C7C8;
 }

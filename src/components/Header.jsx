@@ -6,11 +6,11 @@ import {
     CloseButton
    } from 'react-bootstrap'
 import { BsSearch } from 'react-icons/bs'
-import BasketButton from './BasketButton'
 import { useEffect, useState } from 'react'
 import { ShopState } from '../context/Context'
 import { Link } from 'react-router-dom'
 import CategoriesSelection from './CategoriesSelection'
+import Basket from './Basket'
 
 export default function Header() {
     const [showSearch, setShowSearch] = useState(true)
@@ -52,7 +52,7 @@ export default function Header() {
                             }}
                             />
                         </Form>
-                        <BasketButton />
+                        <Basket />
                     </div>
                  </>
                 ) : (
@@ -68,7 +68,7 @@ export default function Header() {
                                 >
                                     <BsSearch />
                                 </Button>
-                                <BasketButton />
+                                <Basket />
                             </div>
                          </>
                     ) : (

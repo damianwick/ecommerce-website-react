@@ -73,7 +73,16 @@ const Checkout = () => {
                         <Form.Label>Phone number</Form.Label>
                         <Form.Control
                             required        
-                            type='number'
+                            type='tel'
+                            aria-Label='Phone number' 
+                        />
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control
+                            required        
+                            type='email'
                             aria-Label='Phone number' 
                         />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -127,6 +136,7 @@ const Checkout = () => {
                         <Form.Control 
                             as="textarea"
                             aria-Label='Delivery instructions'
+                            style={{maxHeight: 150}}
                             />
                     </Form.Group>
                     <hr className='w-75 mx-auto my-4'/>
@@ -137,7 +147,8 @@ const Checkout = () => {
                         <Form.Label>Debit/credit card</Form.Label>
                         <Form.Control
                             required
-                            type='text'
+                            type='tel'
+                            pattern="[0-9\s]{13,19}"
                             placeholder='xxxx xxxx xxxx xxxx'
                             aria-Label='Debit/credit card' 
                         />

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { ShopState } from "../context/Context"
 import { ImBin } from "react-icons/im"
 import { Link } from "react-router-dom"
-const BasketButton = () => {
+const Basket = () => {
     const { 
         stock: { basket },
         shopStateDispatch 
@@ -28,7 +28,7 @@ const BasketButton = () => {
 
     return (
         <>
-        <Button className='ms-2 btn fs-4' variant="secondary" size="sm"onClick={handleShowCart}>
+        <Button className='ms-2 btn fs-4' variant="secondary" size="sm" onClick={handleShowCart}>
             <BsCart /> 
             <span className="fs-6 ms-1">{basket.length}</span>
         </Button>
@@ -73,7 +73,7 @@ const BasketButton = () => {
                     
                     <Row className="justify-content-center">
                         <Link to='/checkout' className="w-75">
-                            <Button variant="dark" className="rounded-pill w-100">Checkout</Button>
+                            <Button variant="dark" className="rounded-pill w-100" onClick={handleShowCart}>Checkout</Button>
                         </Link>
                     </Row>
                     </Container>
@@ -87,4 +87,4 @@ const BasketButton = () => {
     )
 }
 
-export default BasketButton
+export default Basket
