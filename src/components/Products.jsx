@@ -3,6 +3,7 @@ import { ShopState } from "../context/Context"
 import Filters from "./Filters"
 import { Container, Image} from "react-bootstrap"
 import personShopping from '../assets/person-shopping.jpg'
+import { useEffect } from "react"
 
 const Products = () => {
     const { 
@@ -32,7 +33,7 @@ const Products = () => {
             )
         }
         return filteredProducts
-    }
+    }    
 
     return (
         <>      
